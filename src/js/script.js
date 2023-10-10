@@ -10,5 +10,20 @@ function render(){
   }
 
 }
-
+const favoriteBooks =[];
+function initActions(){
+  const images = document.querySelectorAll('.book__image');
+  console.log('images', images);
+  for (let image of images){
+    //console.log('image', image)
+    image.addEventListener('dblclick', function(event){
+      event.preventDefault();
+      image.classList.add('favorite');
+      const imageId = document.getAttribute('data-id');
+      favoriteBooks.push(imageId);
+    });
+  }
+}
 render();
+initActions();
+
