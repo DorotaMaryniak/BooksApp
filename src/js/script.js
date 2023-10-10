@@ -18,11 +18,19 @@ function initActions(){
     //console.log('image', image)
     image.addEventListener('dblclick', function(event){
       event.preventDefault();
-      image.classList.add('favorite');
-      const imageId = document.getAttribute('data-id');
-      favoriteBooks.push(imageId);
+      const imageId = image.getAttribute('data-id');
+      if (!favoriteBooks.includes(imageId)){
+
+        image.classList.add('favorite');
+
+        favoriteBooks.push(imageId);}
+      else
+      { image.classList.remove('favorite');
+        favoriteBooks.splice(favoriteBooks.indexOf(imageId),1);}
+
     });
-  }
+}
+
 }
 render();
 initActions();
